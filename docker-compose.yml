@@ -40,7 +40,7 @@ services:
     restart: always
     container_name: client_server
     ports:
-      #- "80:80"
+      - "80:80"
       - "443:443"
     restart: always
     depends_on:
