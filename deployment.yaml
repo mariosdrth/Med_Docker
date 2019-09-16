@@ -27,25 +27,38 @@ spec:
           limits:
             memory: "2Gi"
             cpu: "1"
-      - name: med-app-server
-        image: med_proj_app_server
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 8089
-        resources:
-          requests:
-            memory: "1Gi"
-            cpu: "0.5"
-          limits:
-            memory: "2Gi"
-            cpu: "1"
-      - name: med-app-db
-        image: mysql:8.0.17
-        imagePullPolicy: IfNotPresent
-        resources:
-          requests:
-            memory: "1Gi"
-            cpu: "0.5"
-          limits:
-            memory: "2Gi"
-            cpu: "1"
+      # - name: med-app-server
+      #   image: med_proj_app_server
+      #   env:
+      #     - name: SPRING_DATASOURCE_URL
+      #       value: jdbc:mysql://db:3306/gdpr?autoReconnect=true&verifyServerCertificate=false&useSSL=true
+      #     - name: SPRING_DATASOURCE_USERNAME
+      #       value: root
+      #     - name: SPRING_DATASOURCE_PASSWORD
+      #       value: root
+      #   environment:
+      #   imagePullPolicy: IfNotPresent
+      #   ports:
+      #   - containerPort: 8089
+      #   resources:
+      #     requests:
+      #       memory: "1Gi"
+      #       cpu: "0.5"
+      #     limits:
+      #       memory: "2Gi"
+      #       cpu: "1"
+      # - name: med-app-db
+      #   image: mysql:8.0.17
+      #   env:
+      #     - name: MYSQL_ROOT_PASSWORD
+      #       value: root
+      #   ports:
+      #     - containerPort: 3306
+      #   imagePullPolicy: IfNotPresent
+      #   resources:
+      #     requests:
+      #       memory: "1Gi"
+      #       cpu: "0.5"
+      #     limits:
+      #       memory: "2Gi"
+      #       cpu: "1"
