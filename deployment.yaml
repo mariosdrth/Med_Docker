@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: med-app-deployment
+  labels:
+    app: med-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: med-app
+  template:
+    metadata:
+      labels:
+        app: med-app
+    spec:
+      containers:
+      - name: med-app
+        image: med_proj_app_client
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
