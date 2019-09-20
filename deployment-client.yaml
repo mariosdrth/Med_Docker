@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: med-app-client
+  namespace: dev
+  labels:
+    app: med-app-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: med-app-client
+  template:
+    metadata:
+      labels:
+        app: med-app-client
+    spec:
+      containers:
+      - name: med-app-client
+        image: med_proj_app_client
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 80
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "0.5"
+          limits:
+            memory: "2Gi"
+            cpu: "1"
+      # - name: med-app-db
+      #   image: mysql:8.0.17
+      #   env:
+      #     - name: MYSQL_ROOT_PASSWORD
+      #       value: root
+      #   ports:
+      #     - containerPort: 3306
+      #   imagePullPolicy: IfNotPresent
+      #   resources:
+      #     requests:
+      #       memory: "1Gi"
+      #       cpu: "0.5"
+      #     limits:
+      #       memory: "2Gi"
+      #       cpu: "1"

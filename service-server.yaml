@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: med-app-server-service
+  namespace: dev
+spec:
+  selector:
+    app: med-app-server
+  ports:
+  - protocol: TCP
+    port: 8089
+    nodePort: 30001
+  type: NodePort
