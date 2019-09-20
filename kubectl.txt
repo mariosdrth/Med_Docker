@@ -1,0 +1,33 @@
+kubectl version
+kubectl cluster-info
+kubectl run --image nginx webserver
+kubectl get deploy
+kubectl get rs
+kubectl get pod
+kubectl describe deploy webserver
+kubectl port-forward webserver-5b76854b76-mg5kf 5000:80
+kubectl expose deploy webserver --port 80 --type NodePort
+kubectl get services
+kubectl delete pod <>
+!kubectl apply -f deployment.yaml
+!kubectl expose deploy <deploy_name> --type=NodePort
+kubectl config set-context --current --namespace=dev
+
+docker save med_proj_app_client:latest > med_proj_app_client.zip
+docker load < med_proj_app_client.zip
+
+
+
+kubectl apply -f dev-namespace.yaml
+kubectl apply -f service-client.yaml
+kubectl apply -f service-server.yaml
+kubectl apply -f deployment-client.yaml
+kubectl apply -f deployment-server.yaml
+
+kubectl get services
+kubectl get deploy
+
+kubectl delete service med-app-server-service
+kubectl delete service med-app-client-service
+kubectl delete deploy med-app-client
+kubectl delete deploy med-app-server
