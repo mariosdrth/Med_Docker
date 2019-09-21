@@ -1,3 +1,5 @@
+kubectl config set-context --current --namespace=dev
+
 kubectl delete service med-app-server-service
 kubectl delete service med-app-client-service
 kubectl delete deploy med-app-client
