@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: med-app-db-service
+  namespace: dev
+spec:
+  selector:
+    app: med-app-db
+  ports:
+  - protocol: TCP
+    port: 3006
+    nodePort: 30000
+  type: NodePort

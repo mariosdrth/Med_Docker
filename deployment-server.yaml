@@ -14,18 +14,17 @@ spec:
     metadata:
       labels:
         app: med-app-server
-        #tier: backend
     spec:
+      volumes:
+      - name: server-conf
+        configMap:
+          name: server-conf
       containers:
       - name: med-app-server
         image: med_proj_app_server
-        env:
-        - name: SPRING_DATASOURCE_URL
-          value: jdbc:mysql://192.168.1.13:3306/gdpr?autoReconnect=true&verifyServerCertificate=false&useSSL=true
-        - name: SPRING_DATASOURCE_USERNAME
-          value: root
-        - name: SPRING_DATASOURCE_PASSWORD
-          value: root
+        envFrom:
+        - configMapRef:
+            name: server-conf
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
@@ -37,18 +36,3 @@ spec:
           limits:
             memory: "2Gi"
             cpu: "1"
-      # - name: med-app-db
-      #   image: mysql:8.0.17
-      #   env:
-      #     - name: MYSQL_ROOT_PASSWORD
-      #       value: root
-      #   ports:
-      #     - containerPort: 3306
-      #   imagePullPolicy: IfNotPresent
-      #   resources:
-      #     requests:
-      #       memory: "1Gi"
-      #       cpu: "0.5"
-      #     limits:
-      #       memory: "2Gi"
-      #       cpu: "1"
