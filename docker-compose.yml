@@ -29,7 +29,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
     command: --lower_case_table_names=1
     volumes:
-      - ./db-data:/var/lib/mysql
+      - /home/jenkins/jenkins-data/jenkins_home/workspace/pipeline-med-app/med_app/db-data:/var/lib/mysql
     networks:
       - backend
 
