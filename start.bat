@@ -1,3 +1,4 @@
+kubectl apply -f dev-namespace.yaml
 kubectl config set-context --current --namespace=dev
 
 kubectl apply -f dev-namespace.yaml
