@@ -7,4 +7,4 @@ COPY ./gdpr.jar /server
 
 EXPOSE 8089
 
-ENTRYPOINT ["java","-jar -Dspring.profiles.active=prod","/server/gdpr.jar"]
+ENTRYPOINT ["java","-Dspring.profiles.active=prod","-jar","/server/gdpr.jar"]
